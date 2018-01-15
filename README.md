@@ -26,7 +26,7 @@
 #### 项目运行
 
 ```
-git clone  
+git clone git@github.com:JackWsjls/wsjls-cms-practice.git 
 
 cd wsjls-cms-practice
 

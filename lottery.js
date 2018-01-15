@@ -82,7 +82,7 @@ router.use('/datatable', (req, res) => {
     let data = {
         data: [
             {
-                "name": "陳奇1",
+                "name": "测试",
                 "account_name": "C:/Users/任文涛/Desktop/datatable",
                 "price_date": "https://editor.datatables.net/"
             },
