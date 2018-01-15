@@ -14,13 +14,13 @@
 #####   &nbsp;&nbsp;&nbsp;6.ZTree和datatable 结合使用;
 #####   &nbsp;&nbsp;&nbsp;7.摘了一些FreeMarker乱码文字,需要的话自行百度;
 #####   &nbsp;&nbsp;&nbsp;8.页面效果: 
-######  ------练习原声轮播图;
-######  ------练习fileinput.js;
-######  ------axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
+######  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;练习原声轮播图;
+######  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;练习fileinput.js;
+######  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
 
 #### 五、计划:
-	首页练习ECharts;
-	复习vue基础操作;
+#####   &nbsp;&nbsp;&nbsp;首页练习ECharts;
+#####   &nbsp;&nbsp;&nbsp;复习vue基础操作;
 
 #### 另外:
 #### 项目运行
