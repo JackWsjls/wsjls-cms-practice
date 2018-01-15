@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://cdn.datatables.net/1.10.5/css/jquery.dataTables.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<table id="datatable">
+    <thead>
+        <tr>
+            <th>Subscriber ID</th>
+            <th>Install Location</th>
+            <th>Subscriber Name</th>
+            <th>some data</th>
+        </tr>
+    </thead>
+</table>
+<script>
+    oTable = null;
+    var oTable = $('#datatable').dataTable({
+        // "columnDefs": [ 
+        //     {
+        //         // The `data` parameter refers to the data for the cell (defined by the
+        //         // `data` option, which defaults to the column being worked with, in
+        //         // this case `data: 0`.
+        //         "render": function ( data, type, row ) {
+        //             return data +' ('+ row[3]+')';
+        //         },
+        //         "targets": 0
+        //     },
+        //     { "visible": false,  "targets": [ 6 ] }
+        // ]
+        // "columns": [
+        //     { "data": "name" },
+        //     { "data": "position" },
+        //     { "data": "office" },
+        //     { "data": "age" },
+        //     { "data": "start_date" },
+        //     { "data": "salary" }
+        // ]
+    });
+    console.log(oTable)
+</script>
+</body>
+</html>

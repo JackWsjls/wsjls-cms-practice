@@ -1,0 +1,43 @@
+.menu_bg {
+	width: 145px;
+	height: 100%;
+	background-color: #FFBBFF;
+	border-right: 1px solid #666666;
+	border-bottom: none;
+}
+
+.menu_list {
+/*	width: 125px;
+	height: 100%;
+	background-color: #FFBBFF;
+	border: 1px solid #666666;
+	border-bottom: none;*/
+	position: absolute;
+	z-index: 100;
+	top: 70px;
+	width: 155px;
+	margin-left: 10px;
+	/*text-align: center;*/
+}
+
+.menu_list li {
+	min-height: 44px;
+	line-height: 44px;
+	width: 100%;
+}
+
+.menu_list ul>li {
+	list-style: none;
+	/*text-align: center;*/
+}
+
+.menu_list ol li {
+	text-align: left;
+	list-style: none;
+}
+
+.menu_list ol li a {
+	padding-left: 20px;
+	display: block;
+	height: 100%;
+}

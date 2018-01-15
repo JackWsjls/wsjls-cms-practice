@@ -1,0 +1,110 @@
+<style>
+	img {
+		width: 120px;
+		height: 120px;
+	}
+</style>
+<!-- 快递查询 -->
+<div class="kd">
+	<!-- 申通="shentong" EMS="ems" 顺丰="shunfeng" 圆通="yuantong" 中通="zhongtong" 韵达="yunda" 天天="tiantian" 汇通="huitongkuaidi" 全峰="quanfengkuaidi" 德邦="debangwuliu" 宅急送="zhaijisong" -->
+	<div class="kd-select form-inline">
+		<div class="form-group">
+			<label for="kd-value">快递单号</label>
+			<input type="text" id="kd-value" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="kd-type">快递公司</label>
+			<select id="kd-type" class="form-control">
+				<option value=""></option>
+				<option value="shentong">申通</option>
+				<option value="ems">EMS</option>
+				<option value="shunfeng">顺丰</option>
+				<option value="yuantong">圆通</option>
+				<option value="zhongtong">中通</option>
+				<option value="yunda">韵达</option>
+				<option value="tiantian">天天</option>
+				<option value="huitongkuaidi">百世汇通</option>
+				<option value="quanfengkuaidi">全峰</option>
+				<option value="debangwuliu">德邦</option>
+				<option value="zhaijisong">宅急送</option>
+			</select>
+		</div>
+		<button id="kd-btn" class="btn btn-default class="form-group"">查询</button>
+	</div>
+	<div class="kd-content">
+		<!-- 跟踪开始 -->
+		<div class="track-rcol">
+			<div class="track-list">
+				<ul>
+					<!-- <li class="first">
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">感谢您在京东购物，欢迎您再次光临！</span>
+					</li>
+					<li>
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">【京东到家】京东配送员【申国龙】已出发，联系电话【18410106883，感谢您的耐心等待，参加评价还能赢取京豆呦】</span>
+					</li>
+					<li>
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">感谢您在京东购物，欢迎您再次光临！</span>
+					</li>
+					<li>
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">感谢您在京东购物，欢迎您再次光临！</span>
+					</li>
+					<li>
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">感谢您在京东购物，欢迎您再次光临！</span>
+					</li>
+					<li>
+						<i class="node-icon"></i>
+						<span class="time">2016-03-10 18:07:15</span>
+						<span class="txt">感谢您在京东购物，欢迎您再次光临！</span>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+		<!-- 跟踪结束 -->
+	</div>
+	<div>
+		<h4>历史搜索记录</h4>
+		<div class="kd_history"></div>
+		<h4>数据</h4>
+		<div class="kd_data"></div>
+	</div>
+</div>
+<!-- latest qq music  -->
+<div class="panel panel-default" style="width: 1000px;">
+  <!-- Default panel contents -->
+  <div class="panel-heading" style="background-color: #337ab7;color: #ffffff;">Panel heading</div>
+  <div class="panel-body">
+    <span>标题</span>
+    <span id="curTime"></span>
+  </div>
+  <!-- Table -->
+  <table class="table table-striped text-center">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>歌名</th>
+			<th>专辑</th>
+			<th>时间</th>
+			<th>姓名</th>
+			<th>链接</th>
+		</tr>
+	</thead>
+	<tbody id="qqTbody"></tbody>
+  </table>
+</div>
+
+<div class="one_px"></div>
+
+<div id="imgs"></div>
+
+
+<div class="jsonpFoot"></div>

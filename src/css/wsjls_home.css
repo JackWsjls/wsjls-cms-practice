@@ -1,0 +1,35 @@
+@import url('../common/common.css');
+
+.wsjls_home_container {
+	margin: 30px;
+	width: calc(100% - 40px);
+	height: calc(100% - 120px);
+}
+
+.home_container_title {
+	padding: 10px 20px;
+}
+
+/*-------------------------------树桩的样式-------------------------*/
+
+.wsjls_home_container ul.ztree {margin-top: 10px;border: 1px solid #617775;background: #f0f6e4;width:220px;height:360px;overflow-y:scroll;overflow-x:auto;}
+.wsjls_home_container ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
+.wsjls_home_container ul.log.small {height:45px;}
+.wsjls_home_container ul.log li {color: #666666;list-style: none;padding-left: 10px;}
+.wsjls_home_container ul.log li.dark {background-color: #E3E3E3;}
+
+/*------------------------------------------------------------------*/
+
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+
+.ztree li span.button.switch.level0 {visibility:hidden; width:1px;}
+.ztree li ul.level0 {padding:0; background:none;}
+
+div#rMenu {position:absolute; visibility:hidden; top:0; background-color: #555;text-align: left;padding: 2px;}
+div#rMenu ul li{
+	margin: 1px 0;
+	padding: 0 5px;
+	cursor: pointer;
+	list-style: none outside none;
+	background-color: #DFDFDF;
+}

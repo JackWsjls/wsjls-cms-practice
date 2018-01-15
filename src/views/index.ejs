@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- <meta charset="UTF-8"> -->
+	<title>wsjls</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="/common/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/common/fakeLoader.css" type="text/css">
+    <link rel="stylesheet" href="/common/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="/common/bootstrap-dialog.min.css" type="text/css">
+	<!-- 引入fileinput -->
+    <link href="/common/fileinputcss/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/common/fileinputthemes/explorer-fa/theme.css" media="all" rel="stylesheet" type="text/css"/>
+
+	<link rel="stylesheet" href="/css/<%= viewName %>.css">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="/common/jquery.js"></script>
+    <script type="text/javascript" src="/common/bootstrap.js"></script>
+	<script type="text/javascript" src="/common/fakeLoader.js"></script>
+	<script type="text/javascript" src="/common/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="/common/jquery.ztree.excheck.js"></script>
+	<script type="text/javascript" src="/common/jquery.ztree.exedit.js"></script>
+	<script type="text/javascript" src="/common/bootstrap-dialog.min.js"></script>
+
+	<script type="text/javascript" src="/common/bootbox.js"></script>
+	<!-- 引入fileinput -->
+	<script src="/common/fileinputjs/plugins/sortable.js" type="text/javascript"></script>
+    <script src="/common/fileinputjs/fileinput.js" type="text/javascript"></script>
+    <script src="/common/fileinputjs/locales/fr.js" type="text/javascript"></script>
+    <script src="/common/fileinputjs/locales/es.js" type="text/javascript"></script>
+    <script src="/common/fileinputjs/locales/zh.js" type="text/javascript"></script>
+    <script src="/common/fileinputthemes/explorer-fa/theme.js" type="text/javascript"></script>
+    <script src="/common/fileinputthemes/fa/theme.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript" src="./common/wrapObj.js"></script>
+</head>
+<body>
+	<!-- <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">我是center</div> -->
+	<div class="wrap">
+		<%- include("./pages/" + viewName) %>
+	</div>
+	<canvas id="canvas" class="hidden"></canvas>
+    <div class="fakeloader"></div>
+	<script src="/js/<%= viewName %>.js"></script>
+	<!-- <script src="/js/ajaxdemo.js"></script> -->
+	<script type="text/javascript" src="/common/canvasstar.js"></script>
+	<script type="text/javascript">
+		var CanvasStar = new CanvasStar;
+    	CanvasStar.init();
+
+		const homeContentHeight = ($('#fileinput').height() + 1000) + 'px';
+		$('#fileinput').css('height', homeContentHeight);
+	</script>
+</body>
+</html>

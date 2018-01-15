@@ -1,0 +1,31 @@
+<div class="wsjls_home_container">
+
+	<div class="home_container_title">表格管理</div>
+	<div class="one_px"></div>
+
+	<TABLE border=0 height=600px width=100% align=left style="position: relative; z-index: 1000;">
+		<tr>
+			<td>
+				<div style="margin: 10px 0 0 10px">
+					搜索关键字:&nbsp;&nbsp;
+					<input type="text" id="key" value="" class="empty" />
+				</div>
+			</td>
+		</tr>
+		<TR>
+			<TD width=260px align=left valign=top style="padding-right: 20px;border-right: #999999 1px dashed;">
+				<ul id="tree" class="ztree" style="width:260px; height:400px; overflow:auto;"></ul>
+			</TD>
+			<TD width=770px align=left valign=top style="padding-left: 10px;"><IFRAME ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=450px SRC="views/wsjls_home_zTree/datatable.html"></IFRAME></TD>
+		</TR>
+	</TABLE>
+</div>
+<div id="rMenu">
+	<ul>
+		<li id="m_add" onclick="addTreeNode();">增加节点</li>
+		<li id="m_del" onclick="removeTreeNode();">删除节点</li>
+		<li id="m_check" onclick="checkTreeNode(true);">Check节点</li>
+		<li id="m_unCheck" onclick="checkTreeNode(false);">unCheck节点</li>
+		<li id="m_reset" onclick="resetTree();">恢复zTree</li>
+	</ul>
+</div>
