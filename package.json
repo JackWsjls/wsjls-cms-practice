@@ -13,7 +13,9 @@
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
     "express": "~4.14.0",
+    "mockjs": "^1.0.1-beta3",
     "morgan": "~1.7.0",
+    "opn": "^5.2.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
