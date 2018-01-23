@@ -1,4 +1,4 @@
-![Image text](https://raw.githubusercontent.com/JackWsjls/wsjls-cms-practice/master/markdown_images/image0_dog.jpg)
+![Image text](https://raw.githubusercontent.com/JackWsjls/wsjls-cms-practice/master/src/markdown_images/image0_dog.jpg)
 #### 一、node+express+mock数据作为启动服务、设置路由和设置数据。分
 
 #### 二、使用ejs模板作为前端展示
