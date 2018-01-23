@@ -1,8 +1,29 @@
+<script type="text/javascript" src="/common/wsjls_cms_echarts/echarts.js"></script>
+<script type="text/javascript" src="/common/wsjls_cms_echarts/echarts-gl.js"></script>
+<script type="text/javascript" src="/common/wsjls_cms_echarts/ecStat.min.js"></script>
+<script type="text/javascript" src="/common/wsjls_cms_echarts/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="/common/wsjls_cms_echarts/bmap.min.js"></script>
+<script type="text/javascript" src="/common/wsjls_cms_echarts/simplex.js"></script>
+<style>
+	.mainFloat {
+		float: left;
+	}
+</style>
 <div class="my_container">
   <%- include("../component/header") %>
   <div class="main_content">
     <div class="home_content">
-      做表格数据的展示 charts 
+	<h3>echarts</h3>
+	<div class="mainFloat" id="main7" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main6" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main1" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main2" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main3" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main5" style="width: calc(100% / 2);height:400px;"></div>
+	<div class="mainFloat" id="main4" style="width: calc(100%);height:500px;"></div>
     </div>
     <%- include("../component/nav") %>
   </div>

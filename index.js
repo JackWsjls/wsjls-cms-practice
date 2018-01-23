@@ -1,4 +1,4 @@
-// require('babel-register');
+require('babel-register');
 
 let path = require('path');         // nodejs自带模块
 let express = require('express');   // 引入express
@@ -71,6 +71,7 @@ app.get("/wsjls_fileinput",function(req,res){
 });
 
 // http://m.51gsl.com/ajax/status?order=1&type=all_home&api=1&debug=1
+// http://m.51gsl.com/ajax/user?type=4&api=1&debug=1
 app.use('/api', proxy({
 	target: 'http://m.51gsl.com', 
 	changeOrigin: true,
@@ -106,6 +107,8 @@ app.get("/wsjls_vue",function(req,res){
 	}
     res.render("index", renderData);
 });
+
+// 存储端口(怎么存)
 
 // 监听端口, 创建服务器
 let server = app.listen(3000, function() {    

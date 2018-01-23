@@ -97,7 +97,7 @@ const render = (data) => {
 
 
 // checkbox
-$("#subButton").on('click', (event) => {
+$("#subButton").on('click', event => {
 	event.preventDefault() 
 	// console.log($("input[name='checkboxes']").is(':checked'))	// 是否被选中
 	const bool = $("input[name='checkboxes']").is(':checked');
@@ -105,9 +105,7 @@ $("#subButton").on('click', (event) => {
 	// if (!bool) {
 	// 	$("#checkboxes").attr("value", "false")
 	// }
-
 	// $("#checkboxes").attr("value", "true")
-
 	// console.log( $("input[name='checkboxes']:checked").val())	// 值
 	bool ? $("#checkboxes").val(0) : $("#checkboxes").val(1)
 	log($("#checkboxes").val());

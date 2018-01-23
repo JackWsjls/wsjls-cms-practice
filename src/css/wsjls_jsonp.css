@@ -36,7 +36,3 @@ ul li{list-style: none;}
 .track-list li .txt{max-width: 600px; position: relative; display: inline-block; vertical-align: middle;}
 .track-list li.first .time{margin-right: 20px; }
 .track-list li.first .txt{max-width: 600px; }
-
-.kd_data {
-	padding-bottom: 50px;
-}

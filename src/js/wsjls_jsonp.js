@@ -3,6 +3,7 @@ $(function(){
     // axios
 	axios.get('/api/ajax/status?order=1&type=all_home&api=1').then(res=>{
 	    const statu = res.data.data.statuses
+        console.log(res.data.data)
 	    let imgs = '';
 	    for (const key in statu) {
 	    	imgs += '<img src="http://img.51gsl.com/avatar/' + statu[key].user.avatar + '" alt="" />'
@@ -45,15 +46,17 @@ $(function(){
     $('#kd-btn').on('click', () => {
         const kdValue = $('#kd-value').val();
         const kdType = $('#kd-type').val();
-        let isExist = true;
-        for(let val in localStorage) {
-            if (localStorage[val] == kdValue) {
-                isExist = false;
-            }
-        }
-        if (/^[0-9]*$/.test(kdValue) && !!kdType && isExist) {
+
+        if (/^[0-9]*$/.test(kdValue) && !!kdType) {
             localStorage.setItem('kdId' + index,kdValue);
             localStorage.setItem('kdType' + index,$('#kd-type').find("option:selected").text());
+
+            for(let val in localStorage) {
+                if (localStorage[val] == kdValue) {
+                    localStorage.removeItem('kdId' + index);
+                    localStorage.removeItem('kdType' + index);
+                }
+            }
             // const kdUrl = '/kd/query?type=zhongtong&postid=473675760228'  
             // 公司：中通；快递单号：473675760228
             // 公司：韵达；快递单号：3831153628155
@@ -135,9 +138,23 @@ $(function(){
         showArr.push({'kdId': val.kdId, 'kdType': val.kdType});
     })
     newArr.length != 0 && $('.kd_data').html(JSON.stringify(showArr));
-    console.log(localStorage)
+    // console.log(localStorage)
     // 快递结束
 
     // -----------------------------------------------------------------
+
+    // 测试   about js中对象按照键来自动排序
+    axios.get('/lottery/test').then(res => {
+        const testArr = [];
+        for (var obj in res.data.data) {
+            // console.log(obj)
+        }
+    })
+
+    axios.get('/api/ajax/user?type=4&api=1').then(res=>{
+        // console.log(res.data.data.users instanceof Array)
+        // console.log(JSON.stringify(res.data.data.users))
+        console.log(res.data)
+    })
 });
 

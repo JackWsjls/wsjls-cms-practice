@@ -1,8 +1,7 @@
 @import url('../common/common.css');
 
 .freemarker_content {
-	margin: 20px;
 	/*overflow-y: auto;*/
-	overflow-y:scroll;
-	min-height: 300px;
+	/*overflow-y:scroll;*/
+	padding-bottom: 5px;
 }

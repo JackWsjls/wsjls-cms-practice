@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./jquery.js"></script>
+	<style>
+		.child_box {
+			width:400px;
+			height:100px;
+			border:1px dashed #000000;
+		}
+		.child_btn {
+			font-size: 12px;
+			width: 100px;
+			height: 25px;
+			background-color: blue;
+			color: white;
+			border: none;
+			float: right;
+			margin-top: 35px;
+		}
+	</style>
+</head>
+<body>
+<div class="child_box">
+	<div style="float: left">
+		用户名：<input type="text"  id="username" value="a"/> <br/>
+		密&nbsp;&nbsp;&nbsp;码：<input type="text" id="password" value="a" />&nbsp;&nbsp;<br/>
+	</div>
+	<input type="button" value="登录" id="frm1" onclick="doTestLogin();" class="child_btn" style=""/>
+</div>
+
+<script type="text/javascript">
+
+	//	这个是本机的IP地址
+	try{
+	    document.domain = "127.0.0.1";
+	}catch(e){}
+
+	// 接受父元素的数据
+	window.addEventListener("message", function( event ) { 
+		// 把父窗口发送过来的数据显示在子窗口中
+		console.log('-----------我是子页面，取父页面数据--------------');
+		console.log(event);
+		console.log(event.data);
+		console.log('-------------------------');
+	}, false ); 
+
+	function doTestLogin() {
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+
+		console.log(username,password)
+		console.log(location.hash)
+		// console.log(document.cookie)
+	    // alert("iframe 里面的值变换了");
+
+	    // 向父元素发送数据
+	    parent.postMessage({'text': '测试'},"http://127.0.0.1:3000");
+	}
+</script>
+</body>
+</html>

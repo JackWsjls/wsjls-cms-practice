@@ -4,7 +4,65 @@
 		height: 120px;
 	}
 </style>
+<h3>跨域测试</h3>
+<!-- 3000 3001端口跨域访问 感谢巨人的肩膀 -->
+<iframe id="ifm1" name="ifm1" src="http://127.0.0.1:3001/index.html" style="width: 500px; height: 200px;float:left;"></iframe>
+<form name="frm1" id="frm1" class="form form-inline">
+	<h3>测试:</h3>
+	<div class="form-group">
+		<label for="">用户名：</label>
+		<input class="form-control" type="text"  id="v_name" value="b"/> 
+	</div>
+	<div class="form-group">
+		<label for="">密  码：</label>
+		<input class="form-control" type="text" id="v_pass" value="b" />&nbsp;&nbsp;
+	</div>
+	<input class="btn btn-default btn-lg" id="btn1" name="btn1" type="button" value="test" style="font-size:12px" onclick="test_iframe();">
+</form>
+<script>
+//	这个是本机的IP地址
+try{
+    document.domain = "127.0.0.1";
+}catch(e){}
+
+// contentWindow
+function test_iframe() {
+    var v_name = document.getElementById("v_name").value;
+	var v_pass = document.getElementById("v_pass").value;
+	console.log('html--------------------',v_name,v_pass)
+	//访问id为ifm1的iframe里面的id为username控件的值为v_name
+	// console.log($(top.ifm1).find('#username'))
+	// console.log($(window.frames["ifm1"].document).find('#username').val())
+	// console.log($(top.ifm1.document).find('#username').val())
+	$(top.ifm1.document).find('#frm1').click();
+	// 赋值
+	$(top.ifm1.document).find('#username').attr("value",v_name);
+	$(top.ifm1.document).find('#password').attr("value",v_pass);
+
+//	想：现有效果实现之后，可以在3001端口实时操作修改3000端口的内容，实现保存。
+//	代码需要整理，有点乱了，思路不清晰。
+
+    // 通过 postMessage 向子窗口发送数据
+    document.getElementById("ifm1").contentWindow
+            .postMessage(
+            {'username': v_name,'password': v_pass},
+            "http://127.0.0.1:3001"
+    );
+
+    //event 参数中有 data 属性，就是父窗口发送过来的数据
+    window.addEventListener("message", function( event ) {
+        // 把父窗口发送过来的数据显示在子窗口中
+        console.log('------------我是父页面，取子页面数据-------------')
+        console.log(event)
+        console.log(event.data)
+        console.log('-------------------------')
+    }, false );
+}
+</script>
+<!-- 端口跨域结束 -->
+
 <!-- 快递查询 -->
+<h3 class="clear">快递查询</h3>
 <div class="kd">
 	<!-- 申通="shentong" EMS="ems" 顺丰="shunfeng" 圆通="yuantong" 中通="zhongtong" 韵达="yunda" 天天="tiantian" 汇通="huitongkuaidi" 全峰="quanfengkuaidi" 德邦="debangwuliu" 宅急送="zhaijisong" -->
 	<div class="kd-select form-inline">
@@ -78,6 +136,7 @@
 		<div class="kd_data"></div>
 	</div>
 </div>
+<h3 class="clear">QQ音乐数据</h3>
 <!-- latest qq music  -->
 <div class="panel panel-default" style="width: 1000px;">
   <!-- Default panel contents -->
@@ -103,7 +162,7 @@
 </div>
 
 <div class="one_px"></div>
-
+<h3 class="clear">一个图片接口数据</h3>
 <div id="imgs"></div>
 
 

@@ -1,1 +1,222 @@
 <div>测试wsjls_vue_content页面</div>
+
+<!-- 练习 -->
+<div id="app1" style="height: 1000px;">
+	<div>{{ message }}</div>
+	<div v-bind:title="title1">移动上去查看title</div>
+	<div v-if="seen">v-if</div>
+	<ul>
+		<li v-for="ul in uls">
+			{{ ul.text }}
+		</li>
+	</ul>
+	<div>
+		<p>{{ reverse }}</p>
+		<input v-model="reverse">
+		<button class="btn" @click="reverseReverse">reverse</button>
+	</div>
+	<ol>
+	<!--
+	  现在我们为每个 todo-item 提供 todo 对象
+	  todo 对象是变量，即其内容可以是动态的。
+	  我们也需要为每个组件提供一个“key”，稍后再
+	  作详细解释。
+	-->
+		<todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+		</todo-item>
+	</ol>
+	<div>-------------------------------------------</div>
+	<p>{{ obj.foo }}</p>
+	<!-- 这里的 `obj.foo` 不会更新！ -->
+	<button @click="objObj" class="btn btn-success">Change it</button>
+	<div>-------------------------------------------</div>
+	<div>{{testId}}</div>
+
+	<form v-on:submit.prevent="onSubmit" class="form">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		<button class="btn">Submit</button>
+	</form>
+	<div>-------------------------------------------</div>
+	<div id="watch-example">
+		<p>
+			Ask a yes/no question:
+			<input v-model="question">
+		</p>
+		<p>{{ answer }}</p>
+	</div>
+	<div>-------------------------------------------</div>
+	<div v-if="Math.random() > 0.5">
+	  Now you see me
+	</div>
+	<div v-else>
+	  Now you don't
+	</div>
+	<div>-------------------------------------------</div>
+	<template v-if="loginType === 'username'">
+	  <label>Username</label>
+	  <input placeholder="Enter your username" key="username-input">
+	</template>
+	<template v-else>
+	  <label>Email</label>
+	  <input placeholder="Enter your email address" key="email-input">
+	</template>
+	<button class="btn btn-default" @click="toggleLoginType">toggle</button>
+	<div>-------------------------------------------</div>
+	<input
+		v-model="newTodoText"
+		v-on:keyup.enter="addNewTodo"
+		placeholder="Add a todo"
+	>
+	<ul>
+		<li
+			is="todo-item2"
+			v-for="(todo, index) in todos"
+			v-bind:key="todo.id"
+			v-bind:title="todo.title"
+			v-on:remove="todos.splice(index, 1)"
+		></li>
+	</ul>
+</div>
+
+<script>
+//	操作数组 push() pop() shift() unshift() splice() sort() reverse()
+// filter(), concat() 和 slice() 。这些不会改变原始数组，但总是返回一个新数组
+// 可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性
+// Object.assign
+
+	Vue.component('todo-item', {
+	  props: ['todo'],
+	  template: '<li>{{ todo.text }}</li>'
+	})
+	Vue.component('todo-item2', {
+	  template: `<li>{{ title }}<button class="btn btn-default" v-on:click="$emit('remove')">X</button></li>`,
+	  props: ['title']
+	})
+
+	var obj = {
+		foo: 'bar'
+	}
+	// Object.freeze(obj)
+	var app = new Vue({
+		el: '#app1',
+		data: {
+			message: 'Ceshi',
+			title1: '页面加载于' + new Date().toLocaleString(),
+			seen: 'true',
+			uls: [
+				{text: "好好学习"},
+				{text: "天天向上"},
+				{text: "页面加载"}
+			],
+			reverse: "lianxi vue",
+		    groceryList: [
+		      { id: 0, text: '蔬菜' },
+		      { id: 1, text: '奶酪' },
+		      { id: 2, text: '随便其它什么人吃的东西' }
+		    ],
+		    obj: obj,
+		    testId: '',
+		    question: '',
+		    answer: 'I cannot give you an answer until you ask a question!',
+		    loginType: 'username',
+		    newTodoText: '',
+		    todos: [
+		      {
+		        id: 1,
+		        title: 'Do the dishes',
+		      },
+		      {
+		        id: 2,
+		        title: 'Take out the trash',
+		      },
+		      {
+		        id: 3,
+		        title: 'Mow the lawn'
+		      }
+		    ],
+		    nextTodoId: 4
+		},
+		watch: {
+			// 如果 `question` 发生改变，这个函数就会运行
+			question: function (newQuestion, oldQuestion) {
+				this.answer = 'Waiting for you to stop typing...'
+				this.getAnswer()
+			}
+		},
+		methods: {
+			toggleLoginType: function () {
+				this.loginType = this.loginType == 'username' ? '' : 'username';
+			},
+			reverseReverse: function () {
+				this.reverse = this.reverse.split('').reverse().join('');
+			},
+			objObj: () => {
+				this.obj.foo = this.obj.foo == 'baz' ? 'bar' : 'baz';
+			},
+			onSubmit: () => {
+				alert('onSubmit')
+			},
+		    getAnswer: function () {
+				if (this.question.indexOf('?') === -1) {
+					this.answer = 'Questions usually contain a question mark. ;-)'
+					return
+				}
+				this.answer = 'Thinking...'
+				var vm = this
+				axios.get('https://yesno.wtf/api')
+					.then(function (response) {
+						vm.answer = response.data.answer
+					})
+					.catch(function (error) {
+						vm.answer = 'Error! Could not reach the API. ' + error
+					})
+			},
+			addNewTodo: function () {
+				this.todos.push({
+					id: this.nextTodoId++,
+					title: this.newTodoText
+				})
+				this.newTodoText = ''
+			}
+		},
+		beforeCreate: function () {
+			console.log('生命周期', 'beforeCreate')
+		},
+		created: function () {
+			console.log('生命周期', 'created')
+		},
+		beforeMount: function () {
+			console.log('生命周期', 'beforeMount')
+		},
+		mounted: function () {
+			console.log('生命周期', 'mounted')
+		},
+		beforeUpdate: function () {
+			console.log('生命周期', 'beforeUpdate')
+		},
+		updated: function () {
+			console.log('生命周期', 'updated')
+		},
+		beforeDestroy: function () {
+			console.log('生命周期', 'beforeDestroy')
+		},
+		destroyed: function () {
+			console.log('生命周期', 'destroyed')
+		},
+	})
+	app.uls.push({text: "后添加数据"})
+
+	console.log(app.$data);
+	app.testId = app.$el === document.getElementById('app1') ? true : false;
+	app.$watch('message', function (newValue, oldValue) {
+		console.log('newValue', newValue);
+		console.log('oldValue', oldValue);
+	})
+	app.message = "新数据";
+
+</script>
+
