@@ -15,9 +15,9 @@
 ###### 6.ZTree和datatable 结合使用;
 ###### 7.简单加入markdown编辑功能，转载FreeMarker基础语法;
 ###### 8.页面效果: 
-###### 		练习原声轮播图;
-###### 		练习fileinput.js;
-###### 		axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
+ 		练习原声轮播图;
+ 		练习fileinput.js;
+ 		axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
 ###### 9.熟悉ECharts;
 ###### 10.熟悉vue基础操作;
 ###### 11.跨域操作
