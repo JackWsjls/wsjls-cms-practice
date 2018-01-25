@@ -11,18 +11,18 @@
 ###### 2.显示隐藏整体背景;
 ###### 3.bootstrap模态框;
 ###### 4.插件的使用：
-		bootstrap-dialog.js的使用;<br>
-		bootbox.js弹框;<br>
-		ZTree和datatable 结合使用;<br>
-		fakeLoader的页面加载动画效果;<br>
-		jquery-backstretch:更新登陆背景图;<br>
-		marked.js:markdown编辑功能，转载FreeMarker基础语法;<br>
+		bootstrap-dialog.js的使用;
+		bootbox.js弹框;
+		ZTree和datatable 结合使用;
+		fakeLoader的页面加载动画效果;
+		jquery-backstretch:更新登陆背景图;
+		marked.js:markdown编辑功能，转载FreeMarker基础语法;
 		ECharts;
 ###### 5.页面效果: 
- 		练习原声轮播图;<br>
- 		练习fileinput.js;<br>
- 		axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);<br>
- 		Ueditor编辑器的配置;<br>
+ 		练习原声轮播图;
+ 		练习fileinput.js;
+ 		axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
+ 		Ueditor编辑器的配置;
 ###### 6.熟悉vue基础操作;
 ###### 7.跨域操作;
 
