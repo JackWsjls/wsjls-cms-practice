@@ -68,3 +68,39 @@
 	line-height:104px;
 	display:none;}
 #list2 .cur{background:red;}
+
+/* -------------------------------- */
+/*animation: name duration timing-function delay iteration-count direction;*/
+
+/*timing-function
+linear	动画从头到尾的速度是相同的。
+ease	默认。动画以低速开始，然后加快，在结束前变慢。
+ease-in	动画以低速开始。
+ease-out	动画以低速结束。
+ease-in-out	动画以低速开始和结束。
+cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。
+
+direction
+normal	默认值。动画应该正常播放。	
+alternate	动画应该轮流反向播放。*/
+
+@keyframes mymove {
+	from {left:0px;}
+	to {left:1000px;}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/ {
+	from {left:0px;}
+	to {left:1000px;}
+}
+
+.test_animate {
+	width:100px;
+	height:100px;
+	background:red;
+	position:relative;
+	animation:mymove 5s ease -1s infinite alternate;
+	-webkit-animation:mymove 5s ease -1s infinite alternate; /*Safari and Chrome*/
+}
+
+
