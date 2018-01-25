@@ -16,7 +16,6 @@
 	z-index: 100;
 	top: 70px;
 	width: 145px;
-	padding-left: 10px;
 	/*text-align: center;*/
 }
 
@@ -28,6 +27,8 @@
 
 .menu_list ul>li {
 	list-style: none;
+	padding-left: 10px;
+	
 	/*text-align: center;*/
 }
 
