@@ -1,3 +1,4 @@
+###### 转载的接口;部分接口可以使用
 电商接口
 淘宝商品搜索建议:
 http://suggest.taobao.com/sug?code=utf-8&q=商品关键字&callback=cb 用例 
