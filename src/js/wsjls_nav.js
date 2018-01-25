@@ -6,4 +6,7 @@ $(document).ready(() => {
 			$(event.target).siblings().find('ol').slideUp();
 		})
 	})
+	const locationUrl = window.location.href;
+	curLi = locationUrl.substr(locationUrl.lastIndexOf("/") + 1);
+	$('.' + curLi).find('ol').slideDown();
 });

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="/common/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/common/common.css" type="text/css">
+	<script type="text/javascript" src="/common/jquery.js"></script>
+	<script type="text/javascript" src="/common/bootstrap.js"></script>
+	<script type="text/javascript" src="/common/jquery.backstretch.js"></script>
+	<script type="text/javascript" src="/common/bootbox.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+<div class="wsjls_login">
+	<div class="h3 text-center white">后台登陆系统</div>
+	<form action="" class="form wsjls_login_form">
+		<div>
+			<input type="text" class="form-control" placeholder="请输入账户名" id="username">
+		</div>
+		<div>
+			<input type="text" class="form-control" placeholder="请输入登陆密码" id="password">
+		</div>
+		<div>
+			<input type="checkbox" id="rememberme">
+			<label for="rememberme">记住密码</label>
+		</div>
+		<div>
+			<input type="button" class="btn btn-default" value="登陆" style="margin-left: 70px" id="wsjls_login">
+			<input type="button" class="btn btn-default" value="注册" style="margin-left: 20px" id="wsjls_regist">
+		</div>
+		<div>
+			<div class="pull-left">
+				<a href="javascript::;">忘记密码?</a>
+			</div>
+			<div class="pull-right">
+				<span class="wsjls_help">帮助</span><span class="wsjls_reset">重置</span>
+			</div>
+			
+		</div>
+	</form>
+</div>
+<script>
+    $.backstretch([
+      "/images/1.jpg",
+      "/images/2.jpg",
+      "/images/3.jpg"
+    ], {
+        // duration: 2000,
+        // transition: 'push_left|push_right|cover_up|cover_down|fade',
+        // transitionDuration: 250
+        fade: 750,
+        duration: 1500,
+        preload: 0,
+        start: 2,
+        speed: 5
+    });
+
+    $(".wsjls_login").backstretch("/images/login.jpg");
+
+    $('#wsjls_login').on('click', () => {
+    	// 登陆验证
+    	$.get('/lottery/login',(data) => {
+
+    		if ($('#username').val().length > 6) {
+    			bootbox.alert('用户名不符合要求');
+    			return false;
+    		}
+
+    		if ($('#password').val().length > 6) {
+    			bootbox.alert('密码不符合要求');
+    			return false;
+    		}
+
+    		if ($('#username').val().length == 0 && $('#password').val().length == 0) {
+    			bootbox.alert('用户名、账号密码不能为空');
+    			return false;
+    		}
+
+    		const isExistUser = data.data.users.some((val) => {
+    			return val.username == $('#username').val() && val.password == $('#password').val();
+    		})
+
+    		if (isExistUser) {
+    			window.location.href="/wsjls_echarts";
+    		} else {
+    			bootbox.alert('用户名、账号错误');
+    		}
+    	})
+    	// 重置
+    	$('.wsjls_reset').on('click', () => {
+    		$('#username').val() = '';
+    		$('#password').val() = '';
+    	})
+    })
+</script>
+</body>
+</html>

@@ -38,6 +38,20 @@ router.all('/lottery.do', (req, res) => {
     res.json(data);  // 用于将数据转换为json格式
 });
 
+router.use('/login', (req, res) => {
+    let data = {
+        data: {
+            users: [
+                {'username': 'wsjls', 'password': '123456'},
+                {'username': 'admin', 'password': 'admin'}
+            ]
+        },
+        errorCode: 0,
+        msg: ""
+    }
+    res.json(data);  // 用于将数据转换为json格式
+});
+
 router.use('/demo', (req, res) => {
     let data = {
         data: {

@@ -31,9 +31,13 @@ app.set('view engine', 'ejs');
 // });
 
 app.get("/",function(req,res){
+    res.render("login", {});
+});
+
+app.get("/wsjls_echarts",function(req,res){
 	const renderData = {
-		viewName: "wsjls_cms",
-		title: "wsjls_cms"
+		viewName: "wsjls_echarts",
+		title: "wsjls_echarts"
 	}
     res.render("index", renderData);
 });
@@ -95,6 +99,14 @@ app.use('/kd', proxy({
 app.get("/wsjls_jsonp",function(req,res){
 	const renderData = {
 		viewName: "wsjls_jsonp",
+		title: "你好北京"
+	}
+    res.render("index", renderData);
+});
+
+app.get("/wsjls_ueditor",function(req,res){
+	const renderData = {
+		viewName: "wsjls_ueditor",
 		title: "你好北京"
 	}
     res.render("index", renderData);
