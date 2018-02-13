@@ -18,18 +18,18 @@
 		jquery-backstretch:更新登陆背景图;
 		marked.js:markdown编辑功能，转载FreeMarker基础语法;
 		ECharts;
-###### 5.页面效果: 
+###### 5.尝试页面效果: 
  		练习原声轮播图;
  		练习fileinput.js;
  		axios请求接口线上接口练习(这里使用http-proxy-middleware模块转发接口);
  		Ueditor编辑器的配置;
+ 		关于animation动画;
 ###### 6.熟悉vue基础操作;
 ###### 7.跨域操作;
 ###### 8.node请求数据库，完成增删改查；
 
 #### 五、计划:
 
-&nbsp;&nbsp;&nbsp;关于animation动画
 &nbsp;&nbsp;&nbsp;js设计模式
 &nbsp;&nbsp;&nbsp;Node api
 
