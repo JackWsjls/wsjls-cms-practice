@@ -25,10 +25,13 @@
  		Ueditor编辑器的配置;
 ###### 6.熟悉vue基础操作;
 ###### 7.跨域操作;
+###### 8.node请求数据库，完成增删改查；
 
 #### 五、计划:
 
 &nbsp;&nbsp;&nbsp;关于animation动画
+&nbsp;&nbsp;&nbsp;js设计模式
+&nbsp;&nbsp;&nbsp;Node api
 
 #### 另外:
 #### 项目运行

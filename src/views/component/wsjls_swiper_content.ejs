@@ -38,9 +38,27 @@
 
 <div class="test_animate"></div>
 
-<svg width="320" height="320" xmlns="http://www.w3.org/2000/svg">
+<svg width="320" height="220" xmlns="http://www.w3.org/2000/svg">
   <g> 
     <text font-family="microsoft yahei" font-size="80" y="100" x="100">马</text>
     <animateTransform attributeName="transform" begin="0s" dur="3s"  type="scale" from="1" to="1.5" repeatCount="indefinite"/>
   </g>
 </svg>
+
+<h3>node请求数据库，完成增删改查:</h3>
+<p><b>数据格式:</b><span>id:1;</span><span>name:a;</span><span>password:987654321;</span></p>
+<div id="student"></div>
+<button id="add" class="btn btn-success">增加数据</button>
+<button id="delete" class="btn btn-primary">删除数据</button><br/>
+<label for="passId">ID</label><input type="text" placeholder="更新数据id" id="passId">
+<label for="password">PASSWORD</label><input type="text" placeholder="密码重置" id="password">
+<button id="update" class="btn btn-primary">更新数据</button>
+
+<form action='/test' method='post' id="testForm"> 
+    <label for="">name</label><input type='text' name='name' value='fred'> 
+    <label for="">password</label><input type='text' name='password' value='0926xxx572'> 
+    <input type='submit' value='Submit'> 
+</form>
+
+<div style="height: 500px;"></div>
+

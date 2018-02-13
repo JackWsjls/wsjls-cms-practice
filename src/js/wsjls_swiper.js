@@ -118,3 +118,77 @@ $('#clearLog').on('click', () => {
 	event.preventDefault() 
 	$('#pageLog').html('');
 })
+
+// node请求数据库，完成增删改查；
+function released() {
+	$.ajax({
+		url: "/student",
+		// url: "/student?id=1",
+		type: "get",
+		success: function(data) {
+			// 拼接字符串
+			var strs = "";
+			let student = data.data;
+			student.forEach(val => {
+				strs += `<p><span>id:${val.id};</span><span>name:${val.name};</span><span>password:${val.password};</span></p>`
+			})
+			$("#student").html(strs);
+		}
+	})
+}
+released();
+
+let addData = JSON.stringify([{id: 10, name: "繁华", password: 987},{id: 11, name: "茂盛", password: 1234}]);
+// ！！！需要优化两次ajax嵌套！！！
+$('#add').on('click', () => {
+	$.ajax({
+		url: "/add",
+		type: "POST",
+		contentType: "application/json;charset=utf-8",
+		dataType: "json", 
+		data: addData,
+		success: function(data) {
+			console.log(data)
+			bootbox.alert(`${data.message}`);
+			// 显示更新数据
+			released();
+		}
+	})
+})
+
+$('#delete').on('click', () => {
+	$.ajax({
+		url: "/delete",
+		type: "POST",
+		contentType: "application/json;charset=utf-8",
+		dataType: "json", 
+		data: addData,
+		success: function(data) {
+			console.log(data)
+			bootbox.alert(`${data.message}`);
+			// 显示更新数据
+			released();
+		}
+	})
+})
+
+$('#update').on('click', () => {
+	$.ajax({
+		url: `/update?id=${$('#passId').val()}&&password=${$('#password').val()}`,
+		type: "GET",
+		contentType: "application/json;charset=utf-8",
+		dataType: "json", 
+		success: function(data) {
+			console.log(data)
+			bootbox.alert(`${data.message}`);
+			// 显示更新数据
+			released();
+		}
+	})
+})
+
+$('#testForm').on('submit', function (e) {
+    // e.preventDefault()
+    // 数据验证
+    console.log(1234)
+})
