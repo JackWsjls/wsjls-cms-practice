@@ -1,4 +1,4 @@
-console.log(1)
+// console.log(1)
 
 // 基于准备好的dom，初始化echarts实例
 var myChart1 = echarts.init(document.getElementById('main1'));
@@ -115,7 +115,7 @@ $.get('./common/data.json', function (data) {
             return seg.coord.concat([1]);
         });
     }));
-    console.log('points',points);
+    // console.log('points',points);
     myChart.setOption(option4 = {
         animation: false,
         bmap: {
@@ -205,7 +205,7 @@ option5 = {
 var myChart5 = echarts.init(document.getElementById('main5'));
 setInterval(function () {
     addData(true);
-console.log(option5)
+// console.log(option5)
     // myChart5.setOption({
     //     xAxis: {
     //         data: date

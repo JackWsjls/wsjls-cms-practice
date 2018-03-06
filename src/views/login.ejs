@@ -9,7 +9,9 @@
 	<script type="text/javascript" src="/common/jquery.js"></script>
 	<script type="text/javascript" src="/common/bootstrap.js"></script>
 	<script type="text/javascript" src="/common/jquery.backstretch.js"></script>
-	<script type="text/javascript" src="/common/bootbox.js"></script>
+    <script type="text/javascript" src="/common/bootbox.js"></script>
+    <script type="text/javascript" src="/common/jquery.base64.js"></script>
+	<script type="text/javascript" src="/common/md5.js"></script>
 	<style>
 		
 	</style>
@@ -66,12 +68,12 @@
     	$.get('/lottery/login',(data) => {
 
     		if ($('#username').val().length > 6) {
-    			bootbox.alert('用户名不符合要求');
+    			bootbox.alert('用户名必须大于6位数');
     			return false;
     		}
 
     		if ($('#password').val().length > 6) {
-    			bootbox.alert('密码不符合要求');
+    			bootbox.alert('密码必须大于6位数');
     			return false;
     		}
 
@@ -81,7 +83,8 @@
     		}
 
     		const isExistUser = data.data.users.some((val) => {
-    			return val.username == $('#username').val() && val.password == $('#password').val();
+                // return val.username == $('#username').val() && val.password == $('#password').val();
+    			return val.username == $.base64.encode($('#username').val()) && val.password == hex_md5($('#password').val());
     		})
 
     		if (isExistUser) {
