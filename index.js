@@ -8,7 +8,7 @@ const axios = require('axios');
 const opn = require('opn');
 const ejs = require('ejs')
 var bodyParser = require('body-parser');
-const mysql = require('./src/config/db.js');
+// const mysql = require('./src/config/db.js');
 
 // const utils = require(path.join(__dirname, 'src/common/utils.js'));
 const utils = require('./src/common/utils.js');
@@ -102,6 +102,14 @@ app.get("/wsjls_ueditor",function(req,res){
     res.render("index", renderData);
 });
 
+app.get("/wsjls_ueditor_jsp",function(req,res){
+	const renderData = {
+		viewName: "wsjls_ueditor_jsp",
+		title: "上传音视频"
+	}
+    res.render("index", renderData);
+});
+
 app.get("/wsjls_vue",function(req,res){
 	const renderData = {
 		viewName: "wsjls_vue",
@@ -149,27 +157,27 @@ app.get("/student", (req, res) => {
     let query = req.query;
 	let datas = {};
 	let newData = [];
-	mysql.query("select * from student", "", (data) => {
-		if (typeof(data) == "undefined" || data.length == 0) {
-			datas = {
-				status: 0,
-				message: "请求失败"
-			}
-		} else {
-			datas = {
-				status: 1,
-				message: "请求成功"
-			}
-		}
-		if (query.id) {
-			newData.push(data.find(val => {
-				return val.id == query.id;
-			}))
-			data = newData;
-		}
-		datas.data = data;
-		res.json(datas)
-	})
+	// mysql.query("select * from student", "", (data) => {
+	// 	if (typeof(data) == "undefined" || data.length == 0) {
+	// 		datas = {
+	// 			status: 0,
+	// 			message: "请求失败"
+	// 		}
+	// 	} else {
+	// 		datas = {
+	// 			status: 1,
+	// 			message: "请求成功"
+	// 		}
+	// 	}
+	// 	if (query.id) {
+	// 		newData.push(data.find(val => {
+	// 			return val.id == query.id;
+	// 		}))
+	// 		data = newData;
+	// 	}
+	// 	datas.data = data;
+	// 	res.json(datas)
+	// })
 })
 
 app.post("/add", (req, res) => {
@@ -180,52 +188,52 @@ app.post("/add", (req, res) => {
 		insertData[0] = val.id;
 		insertData[1] = val.name;
 		insertData[2] = val.password;
-		mysql.query("insert into student (id,name,password) values(?,?,?)", insertData, (data) => {
-			console.log()
-			if (!data.affectedRows) {
-				datas = {
-					status: 0,
-					message: `数据插入失败`
-				}
-			} else {
-				datas = {
-					status: 1,
-					message: `数据插入成功`
-				}
-			}
-			index == req.body.length - 1 && res.json(datas);
-		})
+		// mysql.query("insert into student (id,name,password) values(?,?,?)", insertData, (data) => {
+		// 	console.log()
+		// 	if (!data.affectedRows) {
+		// 		datas = {
+		// 			status: 0,
+		// 			message: `数据插入失败`
+		// 		}
+		// 	} else {
+		// 		datas = {
+		// 			status: 1,
+		// 			message: `数据插入成功`
+		// 		}
+		// 	}
+		// 	index == req.body.length - 1 && res.json(datas);
+		// })
 	})
 })
 
 app.post('/test', function(req, res) {
     // console.log(req.query.id);
-	mysql.query("select * from student", "", (data) => {
-		let test = data.some(val => {
-			return val.name == req.body.name && req.body.password == val.password;
-		})
-		test ? res.redirect('/wsjls_swiper') : res.send('<h1>登陆失败</h1>');
-	})
+	// mysql.query("select * from student", "", (data) => {
+	// 	let test = data.some(val => {
+	// 		return val.name == req.body.name && req.body.password == val.password;
+	// 	})
+	// 	test ? res.redirect('/wsjls_swiper') : res.send('<h1>登陆失败</h1>');
+	// })
 });
 
 app.post("/delete", (req, res) => {
 	let datas = {};
 	// console.log(req.body)
 	req.body.forEach((val, index) => {
-		mysql.query(`delete from student where id = ${val.id}`, "", (data) => {
-			if (!data.affectedRows) {
-				datas = {
-					status: 0,
-					message: `删除数据失败或没有找到需删除数据`
-				}
-			} else {
-				datas = {
-					status: 1,
-					message: `删除数据成功`
-				}
-			}
-			index == req.body.length - 1 && res.json(datas);
-		})
+		// mysql.query(`delete from student where id = ${val.id}`, "", (data) => {
+		// 	if (!data.affectedRows) {
+		// 		datas = {
+		// 			status: 0,
+		// 			message: `删除数据失败或没有找到需删除数据`
+		// 		}
+		// 	} else {
+		// 		datas = {
+		// 			status: 1,
+		// 			message: `删除数据成功`
+		// 		}
+		// 	}
+		// 	index == req.body.length - 1 && res.json(datas);
+		// })
 	})
 })
 
@@ -233,20 +241,20 @@ app.get("/update", (req, res) => {
 	let query = req.query;
 	let datas = {};
 	// console.log(req.body)
-	mysql.query(`update student set password = ${query.password} where id = ${query.id}`, "", (data) => {
-		if (!data.affectedRows) {
-			datas = {
-				status: 0,
-				message: `更新数据失败`
-			}
-		} else {
-			datas = {
-				status: 1,
-				message: `更新数据成功`
-			}
-		}
-		res.json(datas);
-	})
+	// mysql.query(`update student set password = ${query.password} where id = ${query.id}`, "", (data) => {
+	// 	if (!data.affectedRows) {
+	// 		datas = {
+	// 			status: 0,
+	// 			message: `更新数据失败`
+	// 		}
+	// 	} else {
+	// 		datas = {
+	// 			status: 1,
+	// 			message: `更新数据成功`
+	// 		}
+	// 	}
+	// 	res.json(datas);
+	// })
 })
 
 // 存储端口(怎么存)

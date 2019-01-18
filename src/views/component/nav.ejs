@@ -1,11 +1,17 @@
 <link rel="stylesheet" href="/css/nav.css">
 <div class="menu_bg noneBg"></div>
-<div class="menu_list" id="menuList">
-	<ul>
-		<li class="home wsjls_echarts">
+<div class="menu_list sidebar" id="menuList">
+	<ul class="nav menu">
+		<li class="home wsjls_echarts parent">
 			<!-- <a href="#">第一个</a> -->
-			tree and table
-			<ol>
+			<a data-toggle="collapse" href="#index1">
+				<div>
+					<span class="glyphicon glyphicon-th-large"></span>
+					tree and table
+					<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</div>
+			</a>
+			<ol id="index1" class="children collapse">
 				<li>
 					<a href="/home">tree and table</a>
 				</li>
@@ -14,17 +20,29 @@
 				</li>
 			</ol>
 		</li>
-		<li class="free_marker">
-			文本文档
-			<ol>
+		<li class="free_marker parent">
+			<a data-toggle="collapse" href="#index2">
+				<div>
+					<span class="glyphicon glyphicon-text-width"></span>
+					文本文档
+					<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</div>
+			</a>
+			<ol id="index2" class="children collapse" id="index2">
 				<li>
 					<a href="/free_marker">markdown</a>
 				</li>
 			</ol>
 		</li>
-		<li class="wsjls_swiper wsjls_fileinput wsjls_jsonp wsjls_ueditor">
-			页面效果
-			<ol>
+		<li class="wsjls_swiper wsjls_fileinput wsjls_jsonp wsjls_ueditor parent">
+			<a data-toggle="collapse" href="#index3">
+				<div>
+					<span class="glyphicon glyphicon-list"></span>
+					页面效果
+					<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</div>
+			</a>
+			<ol id="index3" class="children collapse">
 				<li>
 					<a href="/wsjls_swiper">轮播图</a>
 				</li>
@@ -37,34 +55,50 @@
 				<li>
 					<a href="/wsjls_ueditor">Ueditor</a>
 				</li>
+				<li>
+					<a href="/wsjls_ueditor_jsp">Ueditor_jsp</a>
+				</li>
 			</ol>
 		</li>
-		<li class="wsjls_vue">
-			VUE练习
-			<ol>
+		<li class="wsjls_vue parent">
+			<a data-toggle="collapse" href="#index4">
+				<div>
+					<span class="glyphicon glyphicon-magnet"></span>
+					VUE练习
+					<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</div>
+			</a>
+			<ol id="index4" class="children collapse">
 				<li>
 					<a href="/wsjls_vue">vue基础</a>
 				</li>
-<!-- 				<li>
-					<a href="#">此页</a>
-				</li> -->
 			</ol>
 		</li>
-		<li class="wsjls_js">
-			JS基础练习
-			<ol>
+		<li class="wsjls_js parent">
+			<a data-toggle="collapse" href="#index5">
+				<div>
+					<span class="glyphicon glyphicon-globe"></span>
+					JS基础练习
+					<span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+				</div>
+			</a>
+			<ol id="index5" class="children collapse">
 				<li>
 					<a href="/wsjls_js">JS基础练习</a>
 				</li>
-<!-- 				<li>
-					<a href="#">此页</a>
-				</li> -->
 			</ol>
 		</li>
-		<li>
-			<!-- <a href="#">第五个</a> -->
+		<li class="parent parent">
 			待定
 		</li>
 	</ul>
 </div>
 <script src="/js/wsjls_nav.js"></script>
+<script>
+	$(document).on("click","ul.nav li.parent > a", function(){
+		$(this).find("span em:first").toggleClass("glyphicon-minus");
+	})
+
+	$(".sidebar span.icon").find("em:first").addClass("glyphicon-plus");
+
+</script>

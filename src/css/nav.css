@@ -1,5 +1,5 @@
 .menu_bg {
-	width: 145px;
+	width: 175px;
 	height: 100%;
 	background-color: #FFBBFF;
 	border-right: 1px solid #666666;
@@ -15,7 +15,7 @@
 	position: absolute;
 	z-index: 100;
 	top: 70px;
-	width: 145px;
+	width: 175px;
 	/*text-align: center;*/
 }
 
